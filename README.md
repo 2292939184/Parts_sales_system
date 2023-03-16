@@ -37,7 +37,7 @@
 - public_BasicSetting.java:**公共功能**-基础配置界面
 - public_FinancialManagementActivity.java：**公共功能**-财务管理界面
 - ui_login_Register.java:**公共功能**-注册界面
-
+- public_UseManagementActivity.java：**公共功能**-使用管理界面
 
 ### res文件夹解释：
 - drawable：图片资源
@@ -60,6 +60,8 @@
   - order_id_list.xml：**订货付款列表**的item新增操作中的**订货单编码ID**的下拉选择框
   - orderpaymentlist_item_add.xml：用户点击新增按钮，实现**订货付款列表**的item新增操作
   - orderpaymentlist_item_detail.xml：用户点击item，弹出**订货付款列表**item的详细信息窗口，可进行修改、删除操作
+
+
 
 
 - menu：菜单文件

@@ -1,8 +1,5 @@
 package com.example.parts_sales_system;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -10,9 +7,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.parts_sales_system.ui.basic_setting.HomeFragment;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
-public class public_BasicSettingActivity extends AppCompatActivity {
+import com.example.parts_sales_system.ui.public_use_management.HomeFragment;
+
+
+public class public_UseManagementActivity extends AppCompatActivity {
     private HomeFragment homeFragment;
     Boolean flag;
     Boolean flag_out;
@@ -20,7 +21,7 @@ public class public_BasicSettingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_public_basic_setting);
+        setContentView(R.layout.activity_private_use_management);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         flag=getIntent().getBooleanExtra("flag",true);
         flag_out=getIntent().getBooleanExtra("flag_out",true);
@@ -63,7 +64,7 @@ public class public_BasicSettingActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case R.id.MainActivity:
-                Intent intent=new Intent(public_BasicSettingActivity.this,public_MainActivity.class);
+                Intent intent=new Intent(public_UseManagementActivity.this,public_MainActivity.class);
                 startActivity(intent);
                 break;
         }

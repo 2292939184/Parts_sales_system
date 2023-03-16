@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -24,19 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/corner"
-            android:padding="10dip">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-                <CheckBox
-                    android:id="@+id/cbx"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false" />
-            </TableRow>
+            android:padding="10dip"
+            android:layout_marginRight="@dimen/item_margin">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -106,15 +96,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/MFJID"
+                    android:text="@string/PatrolRecordCodeID"
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/MFJID"
+                    android:id="@+id/Requirement_PlanningCodeID"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"/>
             </TableRow>
         </TableLayout>
+
     </LinearLayout>
 </LinearLayout>

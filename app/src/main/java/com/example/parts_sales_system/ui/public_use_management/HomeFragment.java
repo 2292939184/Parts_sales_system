@@ -1,4 +1,4 @@
-package com.example.parts_sales_system.ui.basic_setting;
+package com.example.parts_sales_system.ui.public_use_management;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +11,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.parts_sales_system.R;
 import com.example.parts_sales_system.ui.top_nav_fragment_invent.FragmentAdapter;
+import com.example.parts_sales_system.ui.use_management.PatrolManagement;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -22,12 +23,12 @@ public class HomeFragment extends Fragment {
     private ArrayList fragmentList;
     private TabLayout tabLayout;
     //实例化对象名要改
-    private AuthorityManagement AuthorityManagement=new AuthorityManagement();
-    private UserManagement UserManagement=new UserManagement();
-    private ProductData PatrolManagement=new ProductData();
+    private RequirementManagement RequirementManagement=new RequirementManagement();
+    private InstManagement InstManagement=new InstManagement();
+//    private FeedbackManagement FeedbackManagement =new FeedbackManagement();
     private List<String> mTitles;
     //title要改
-    private String [] title={"权限管理","用户管理","产品数据"};
+    private String [] title={"需求管理","安装管理","使用管理"};
     Boolean flag_in;
     Boolean flag_out;
     int page;
@@ -50,20 +51,21 @@ public class HomeFragment extends Fragment {
         fragmentList=new ArrayList<>();
         mTitles=new ArrayList<>();
         //PatrolManagement要改，几个二级功能就添加几次
-        AuthorityManagement.setFlag(flag_in);
-        UserManagement.setFlag(flag_in);
-        PatrolManagement.setFlag(flag_in);
-        fragmentList.add(AuthorityManagement);
-        fragmentList.add(UserManagement);
-        fragmentList.add(PatrolManagement);
+        RequirementManagement.setFlag(flag_in);
+        InstManagement.setFlag(flag_in);
+//        FeedbackManagement.setFlag(flag_in);
+        fragmentList.add(RequirementManagement);
+        fragmentList.add(InstManagement);
+//        fragmentList.add(FeedbackManagement);
         //title不止一个字符时，还要添加title[1]、title[2]等
         mTitles.add(title[0]);
         mTitles.add(title[1]);
-        mTitles.add(title[2]);
+//        mTitles.add(title[2]);
 
         fragmentAdapter=new FragmentAdapter(getActivity().getSupportFragmentManager(),fragmentList,mTitles);
         pager.setAdapter(fragmentAdapter);
         tabLayout.setupWithViewPager(pager);//与ViewPage建立关系
         pager.setCurrentItem(page);
     }
+
 }

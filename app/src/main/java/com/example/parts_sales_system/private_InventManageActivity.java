@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.parts_sales_system.ui.top_nav_fragment_invent.HomeFragment;
-import com.example.parts_sales_system.ui.top_nav_fragment_invent.InManagement;
 
 public class private_InventManageActivity extends AppCompatActivity {
     private HomeFragment homeFragment;

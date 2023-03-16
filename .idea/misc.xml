@@ -32,6 +32,7 @@
         <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/layout/activity_public_basic_setting_authority_management.xml" value="0.22" />
         <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/layout/activity_public_basic_setting_product_data.xml" value="0.22" />
         <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/layout/activity_public_basic_setting_product_data_mfjlist_detailed.xml" value="0.176" />
+        <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/layout/activity_public_basic_setting_productdata.xml" value="0.2" />
         <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/layout/activity_public_basic_setting_user_management.xml" value="0.22" />
         <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/layout/activity_public_financia_management.xml" value="0.36614583333333334" />
         <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/layout/activity_public_financial_management.xml" value="0.25" />
@@ -70,7 +71,12 @@
         <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/layout/private_use_management_patrolrecordlist_setdata.xml" value="0.22" />
         <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/layout/public_basic_setting_product_data_mfjlist_adddata.xml" value="0.22" />
         <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/layout/public_basic_setting_product_data_mfjlist_item.xml" value="0.36614583333333334" />
-        <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/layout/public_basic_setting_product_data_mfjlist_item_cbx.xml" value="0.22" />
+        <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/layout/public_basic_setting_product_data_mfjlist_item_cbx.xml" value="0.25" />
+        <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/layout/public_basic_setting_product_data_mfjlist_setdata.xml" value="0.22" />
+        <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/layout/public_basic_setting_productdata_adddata.xml" value="0.36614583333333334" />
+        <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/layout/public_basic_setting_productdata_item.xml" value="0.36614583333333334" />
+        <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/layout/public_basic_setting_productdata_item_cbx.xml" value="0.36614583333333334" />
+        <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/layout/public_basic_setting_productdata_setdata.xml" value="0.36614583333333334" />
         <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/layout/public_financial_management.xml" value="0.25" />
         <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/layout/public_financial_management_orderpaymentlist_adddata.xml" value="0.22" />
         <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/layout/public_financial_management_orderpaymentlist_item.xml" value="0.25" />
@@ -86,6 +92,29 @@
         <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/menu/popmenu_PatrolManagement.xml" value="0.36614583333333334" />
         <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/menu/popmenu_patrolmanagement.xml" value="0.36614583333333334" />
         <entry key="..\:/Android/Android_Projects/Parts_sales_system/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3285" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/activity_add_in_data_alertdialog.xml" value="0.13541666666666666" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/activity_main.xml" value="0.13541666666666666" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/activity_private_invent_manage.xml" value="0.13541666666666666" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/activity_private_invent_manage_in_management.xml" value="0.13541666666666666" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/activity_private_invent_manage_out_management.xml" value="0.13541666666666666" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/activity_private_use_management_patrol_management.xml" value="0.1" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/activity_public_use_management.xml" value="0.1" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/activity_public_use_management_inst_management.xml" value="0.1" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/activity_public_use_management_requirement_management.xml" value="0.264" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/common_spinner_list.xml" value="0.1" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/content_main.xml" value="0.2203125" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/item_cbx.xml" value="0.1" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/private_use_management_patrolrecordlist_item.xml" value="0.1" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/private_use_management_patrolrecordlist_item_cbx.xml" value="0.1" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/prublic_use_management_requirementsplanninglist_item_cbx.xml" value="0.1" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/public_use_management_rpllist_adddata.xml" value="0.1" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/public_use_management_rpllist_item.xml" value="0.1" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/public_use_management_rpllist_item_cbx.xml" value="0.1" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/public_use_management_rpllist_setdata.xml" value="0.1" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/public_use_management_uselist_adddata.xml" value="0.15307971014492755" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/public_use_management_uselist_item.xml" value="0.15307971014492755" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/public_use_management_uselist_item_cbx.xml" value="0.15307971014492755" />
+        <entry key="..\:/HG/Parts_sales_system0317/app/src/main/res/layout/public_use_management_uselist_setdata.xml" value="0.15307971014492755" />
       </map>
     </option>
   </component>

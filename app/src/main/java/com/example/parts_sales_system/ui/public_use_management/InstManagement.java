@@ -1,4 +1,4 @@
-package com.example.parts_sales_system.ui.basic_setting;
+package com.example.parts_sales_system.ui.public_use_management;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,10 +20,11 @@ import androidx.fragment.app.Fragment;
 import com.example.parts_sales_system.R;
 import com.example.parts_sales_system.data.api_connection.delData;
 import com.example.parts_sales_system.data.api_connection.getData;
-import com.example.parts_sales_system.public_BasicSettingActivity;
-import com.example.parts_sales_system.public_BasicSetting_ProductData_MFJList_AddData;
-import com.example.parts_sales_system.public_BasicSetting_ProductData_MFJList_SetData;
+import com.example.parts_sales_system.public_UseManagementActivity;
+import com.example.parts_sales_system.public_UseManagement_InstManagement_RPList_AddData;
+import com.example.parts_sales_system.public_UseManagement_InstManagement_RPList_SetData;
 import com.example.parts_sales_system.ui.top_nav_fragment_invent.Model_check;
+import com.example.parts_sales_system.ui.use_management.PatrolManagement;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -33,30 +34,32 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class ProductData extends Fragment {
+public class InstManagement extends Fragment {
     public com.getbase.floatingactionbutton.FloatingActionButton add,del,manage;
     Boolean mflag=false;
     //外键的数组名要改
-    private String[] UseDeptIDStringArray;
+    private String[] BuildInstiCodeIDStringArray;
     public boolean mIsFromItem = false;
     ListView listView;
     CheckBox mMainCkb;
-    cbx_Adapter_MFJList cbxAdapter;
+    cbx_Adapter cbxAdapter;
     private List<Model_check> models;
     List<HashMap<String, Object>> data;
     List<String> ID;
-    public ProductData(){}
+    //实例化的对象要改
+    public InstManagement(){}
     public void setFlag(Boolean flag){
         this.mflag=flag;
     }
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         getFKData();
-        View view=inflater.inflate(R.layout.activity_public_basic_setting_productdata,container,false);
+        //布局文件要改
+        View view=inflater.inflate(R.layout.activity_public_use_management_inst_management,container,false);
         add=view.findViewById(R.id.add);
-        add.setOnClickListener(new ProductData.Add());
+        add.setOnClickListener(new Add());
         del=view.findViewById(R.id.del);
-        del.setOnClickListener(new ProductData.Del());
+        del.setOnClickListener(new Del());
         if (mflag){
             del.setEnabled(true);
         }
@@ -65,9 +68,9 @@ public class ProductData extends Fragment {
             @Override
             public void onClick(View v) {
                 //跳转的Activity要改
-                Intent intent=new Intent(getActivity(), public_BasicSettingActivity.class);
+                Intent intent=new Intent(getActivity(), public_UseManagementActivity.class);
                 intent.putExtra("flag",mflag);
-                intent.putExtra("page",2);
+                intent.putExtra("page",0);
                 startActivity(intent);
             }
         });
@@ -79,11 +82,11 @@ public class ProductData extends Fragment {
         @Override
         public void onClick(View view){
             //跳转的AddActivity要改
-            Intent intent=new Intent(getActivity(), public_BasicSetting_ProductData_MFJList_AddData.class);
+            Intent intent=new Intent(getActivity(), public_UseManagement_InstManagement_RPList_AddData.class);
             Bundle bundle=new Bundle();
             //外键的数组名要改
-            bundle.putSerializable("array",UseDeptIDStringArray);
-            intent.putExtra("page",2);
+            bundle.putSerializable("array",BuildInstiCodeIDStringArray);
+            intent.putExtra("page",0);
             intent.putExtras(bundle);
             startActivity(intent);
         }
@@ -92,15 +95,14 @@ public class ProductData extends Fragment {
     private class Del implements View.OnClickListener{
         @Override
         public void onClick(View view){
-            for (int i = 0; i< cbx_Adapter_MFJList.index.size(); i++){
-                String id = ID.get(Integer.parseInt((String) cbx_Adapter_MFJList.index.get(i)));
-                System.out.println(ID);
+            for (int i = 0; i<cbx_Adapter.index.size(); i++){
+                String id = ID.get(Integer.parseInt((String) cbx_Adapter.index.get(i)));
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         try {
                             //访问的数据库表名要改
-                            delData.delData("MFJ", "{\"ID\":\"" + id + "\"}");
+                            delData.delData("MFJUse", "{\"ID\":\"" + id + "\"}");
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
@@ -108,8 +110,8 @@ public class ProductData extends Fragment {
                 }).start();
             }
             //跳转的AddActivity要改
-            Intent intent=new Intent(getActivity(),public_BasicSettingActivity.class);
-            intent.putExtra("page",2);
+            Intent intent=new Intent(getActivity(),public_UseManagementActivity.class);
+            intent.putExtra("page",0);
             startActivity(intent);
         }
     }
@@ -130,8 +132,8 @@ public class ProductData extends Fragment {
                         }
                     }
                     //最后一个字段名和对应的布局对象要改
-                    SimpleAdapter adapter = new SimpleAdapter(getActivity(), data, R.layout.public_basic_setting_product_data_mfjlist_item,
-                            new String[]{"itemNumber","CreateBy","CreateDateTime","UpdateBy","UpdateDateTime","MFJID"}, new int[]{R.id.itemNumber,R.id.creator,R.id.creatTime,R.id.updater,R.id.updateTime,R.id.MFJID});
+                    SimpleAdapter adapter = new SimpleAdapter(getActivity(), data, R.layout.public_use_management_uselist_item,
+                            new String[]{"itemNumber","CreateBy","CreateDateTime","UpdateBy","UpdateDateTime","InstaCodeID"}, new int[]{R.id.itemNumber,R.id.creator,R.id.creatTime,R.id.updater,R.id.updateTime,R.id.InstaCodeID});
                     listView.setAdapter(adapter);
                     listView.setOnItemClickListener(new ItemClickListener());
                 }
@@ -141,7 +143,7 @@ public class ProductData extends Fragment {
                         ListView listView = (ListView) parent;
                         HashMap<String, Object> data = (HashMap<String, Object>) listView.getItemAtPosition(position);
                         //跳转的SetActivity要改
-                        Intent intent=new Intent(getActivity(), public_BasicSetting_ProductData_MFJList_SetData.class);
+                        Intent intent=new Intent(getActivity(), public_UseManagement_InstManagement_RPList_SetData.class);
                         Bundle bundle=new Bundle();
                         bundle.putSerializable("data",data);
                         intent.putExtras(bundle);
@@ -154,38 +156,22 @@ public class ProductData extends Fragment {
                 @Override
                 public void run() {
                     try{
-                        JSONArray jsonArray= getData.getData("MFJ","");
+                        //访问的数据库表名和字段要改
+                        JSONArray jsonArray= getData.getData("MFJUse","");
                         data = new ArrayList<HashMap<String,Object>>();
                         for (int i=0;i<jsonArray.length();i++){
                             HashMap<String, Object> item = new HashMap<String, Object>();
                             JSONObject jsonObject=new JSONObject(jsonArray.getString(i));
-                            //当前item的序号
                             item.put("itemNumber",(i+1));
-                            //以下为对应表的字段信息
                             item.put("CreateBy",jsonObject.getString("createBy"));
                             item.put("CreateDateTime",jsonObject.getString("createDateTime"));
                             item.put("UpdateBy",jsonObject.getString("updateBy"));
                             item.put("UpdateDateTime",jsonObject.getString("updateDateTime"));
-                            item.put("MFJID",jsonObject.getString("ID"));
-                            item.put("UseDeptID",jsonObject.getString("UseDeptID"));
-                            item.put("MFJName",jsonObject.getString("MFJName"));
-                            item.put("MFJXing",jsonObject.getString("MFJXing"));
-                            item.put("MFJWaiJing",jsonObject.getString("MFJWaiJing"));
-                            item.put("MFJGuang",jsonObject.getString("MFJGuang"));
-                            item.put("MFJYuJiGeng",jsonObject.getString("MFJYuJiGeng"));
-                            item.put("MFJDes",jsonObject.getString("MFJDes"));
-                            item.put("MFJZaiTu","");
-                            item.put("MFJTuiHuo",jsonObject.getString("MFJTuiHuo"));
-                            item.put("MFJZaiKu",jsonObject.getString("MFJZaiKu"));
-                            item.put("MFJChuKu",jsonObject.getString("MFJChuKu"));
-                            item.put("MFJZaiYong",jsonObject.getString("MFJZaiYong"));
-                            item.put("MFJModelNo",jsonObject.getString("MFJModelNo"));
-                            item.put("MFJModelName",jsonObject.getString("MFJModelName"));
-                            item.put("MFJModelDes",jsonObject.getString("MFJModelDes"));
-                            item.put("MFJModelIfYou",jsonObject.getString("MFJModelIfYou"));
-                            item.put("MFJModelDate",jsonObject.getString("MFJModelDate"));
-                            item.put("MFJModelDan",jsonObject.getString("MFJModelDan"));
-                            item.put("MFJModelIfShou",jsonObject.getString("MFJModelIfShou"));
+                            item.put("InstaCodeID",jsonObject.getString("ID"));
+                            item.put("MFJUseID",jsonObject.getString("MFJUseID"));
+                            item.put("MFJUseDate",jsonObject.getString("MFJUseDate"));
+                            item.put("MFJUseCont",jsonObject.getString("MFJUseCont"));
+                            item.put("MFJUseUser",jsonObject.getString("MFJUseUser"));
                             data.add(item);
                         }
                         Message msg=new Message();
@@ -220,37 +206,22 @@ public class ProductData extends Fragment {
                 @Override
                 public void run() {
                     try{
-                        JSONArray jsonArray= getData.getData("MFJ","");
+                        //访问的数据库表名和字段要改
+                        JSONArray jsonArray= getData.getData("MFJUse","");
                         data = new ArrayList<HashMap<String,Object>>();
                         for (int i=0;i<jsonArray.length();i++){
                             HashMap<String, Object> item = new HashMap<String, Object>();
                             JSONObject jsonObject=new JSONObject(jsonArray.getString(i));
                             item.put("itemNumber",(i+1));
-                            //以下为对应表的字段信息
                             item.put("CreateBy",jsonObject.getString("createBy"));
                             item.put("CreateDateTime",jsonObject.getString("createDateTime"));
                             item.put("UpdateBy",jsonObject.getString("updateBy"));
                             item.put("UpdateDateTime",jsonObject.getString("updateDateTime"));
-                            item.put("MFJID",jsonObject.getString("ID"));
-                            item.put("UseDeptID",jsonObject.getString("UseDeptID"));
-                            item.put("MFJName",jsonObject.getString("MFJName"));
-                            item.put("MFJXing",jsonObject.getString("MFJXing"));
-                            item.put("MFJWaiJing",jsonObject.getString("MFJWaiJing"));
-                            item.put("MFJGuang",jsonObject.getString("MFJGuang"));
-                            item.put("MFJYuJiGeng",jsonObject.getString("MFJYuJiGeng"));
-                            item.put("MFJDes",jsonObject.getString("MFJDes"));
-                            item.put("MFJZaiTu","");
-                            item.put("MFJTuiHuo",jsonObject.getString("MFJTuiHuo"));
-                            item.put("MFJZaiKu",jsonObject.getString("MFJZaiKu"));
-                            item.put("MFJChuKu",jsonObject.getString("MFJChuKu"));
-                            item.put("MFJZaiYong",jsonObject.getString("MFJZaiYong"));
-                            item.put("MFJModelNo",jsonObject.getString("MFJModelNo"));
-                            item.put("MFJModelName",jsonObject.getString("MFJModelName"));
-                            item.put("MFJModelDes",jsonObject.getString("MFJModelDes"));
-                            item.put("MFJModelIfYou",jsonObject.getString("MFJModelIfYou"));
-                            item.put("MFJModelDate",jsonObject.getString("MFJModelDate"));
-                            item.put("MFJModelDan",jsonObject.getString("MFJModelDan"));
-                            item.put("MFJModelIfShou",jsonObject.getString("MFJModelIfShou"));
+                            item.put("InstaCodeID",jsonObject.getString("ID"));
+                            item.put("MFJUseID",jsonObject.getString("MFJUseID"));
+                            item.put("MFJUseDate",jsonObject.getString("MFJUseDate"));
+                            item.put("MFJUseCont",jsonObject.getString("MFJUseCont"));
+                            item.put("MFJUseUser",jsonObject.getString("MFJUseUser"));
                             data.add(item);
                         }
                         Message msg=new Message();
@@ -273,15 +244,14 @@ public class ProductData extends Fragment {
             model.setSt(String.valueOf(i));
             model.setIscheck(false);
             models.add(model);
-            //这里的PatrolRecordCodeID也要改成表中的主键
-            ID.add((String) data.get(i).get("MFJID"));
+            //这里的InstaCodeID也要改成表中的主键
+            ID.add((String) data.get(i).get("InstaCodeID"));
         }
     }
     private void initViewOper(List<HashMap<String, Object>> data) {
-        cbxAdapter = new cbx_Adapter_MFJList(data,models, getActivity(), new AllCheckListener() {
+        cbxAdapter = new cbx_Adapter(data,models, getActivity(), new RequirementManagement.AllCheckListener() {
             @Override
             public void onCheckedChanged(boolean b) {
-                //根据不同的情况对maincheckbox做处理
                 if (!b && !mMainCkb.isChecked()) {
                     return;
                 } else if (!b && mMainCkb.isChecked()) {
@@ -294,7 +264,6 @@ public class ProductData extends Fragment {
             }
         });
         listView.setAdapter(cbxAdapter);
-        //全选的点击监听
         mMainCkb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -308,10 +277,10 @@ public class ProductData extends Fragment {
                 for (Model_check model : models) {
                     model.setIscheck(b);
                 }
-                cbx_Adapter_MFJList.index=new ArrayList<>();
+                cbx_Adapter.index=new ArrayList<>();
                 for (Model_check model: models) {
                     if (model.ischeck()) {
-                        cbx_Adapter_MFJList.index.add(model.getSt());
+                        cbx_Adapter.index.add(model.getSt());
                     }
                     else {
                         continue;
@@ -332,18 +301,20 @@ public class ProductData extends Fragment {
             @Override
             public void run() {
                 try {
-                    JSONArray jdataUseDeptID = getData.getData("UseDept","");
+                    //访问的数据库表名和字段要改
+                    //外键需要访问几个表就生成几个StringArray
+                    JSONArray jdataUseDeptID = getData.getData("MFJUse","");
                     int jsonArrayOrderIDlength = jdataUseDeptID.length();
                     //字符串数组,用于存储目标字段的全部可取值
                     //先加1是为了写进固定的测试例子
-                    String[] UseDeptIDString = new String[jsonArrayOrderIDlength+1];
+                    String[] BuildInstiCodeIDString = new String[jsonArrayOrderIDlength+1];
                     for (int i=0;i<jsonArrayOrderIDlength;i++){
                         JSONObject SubjsonObject = jdataUseDeptID.getJSONObject(i);
-                        UseDeptIDString[i] = SubjsonObject.getString("ID");
+                        BuildInstiCodeIDString[i] = SubjsonObject.getString("ID");
                     }
                     //固定的测试例子
-                    UseDeptIDString[jsonArrayOrderIDlength] = "20230227110803832";
-                    UseDeptIDStringArray = UseDeptIDString;
+                    BuildInstiCodeIDString[jsonArrayOrderIDlength] = "20230306110908984";
+                    BuildInstiCodeIDStringArray = BuildInstiCodeIDString;
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
