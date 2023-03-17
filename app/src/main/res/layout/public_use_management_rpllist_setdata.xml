@@ -116,7 +116,7 @@
                     android:textSize="@dimen/item_detail_text_size"
                     android:textColor="@color/black"/>
                 <EditText
-                    android:id="@+id/MJFXuQiuDate"
+                    android:id="@+id/MFJXuQiuDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/item_detail_text_size"
@@ -131,7 +131,7 @@
                     android:textSize="@dimen/item_detail_text_size"
                     android:textColor="@color/black"/>
                 <EditText
-                    android:id="@+id/MJFXuQiuCont"
+                    android:id="@+id/MFJXuQiuCont"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/item_detail_text_size"

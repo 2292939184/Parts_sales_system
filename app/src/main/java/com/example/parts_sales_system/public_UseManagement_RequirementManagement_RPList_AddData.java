@@ -36,8 +36,8 @@ public class public_UseManagement_RequirementManagement_RPList_AddData extends A
         BuildPlanningCodeID.setAdapter(adapter); // 设置下拉框的数组适配器
         BuildPlanningCodeID.setSelection(BuildPlanningCodeIDStringArray.length-1); // 设置下拉框默认显示最后一项的测试例子
 
-//        MFJXuQiuDate=findViewById(R.id.MFJXuQiuDate);
-//        MFJXuQiuCont=findViewById(R.id.MFJXuQiuCont);
+        MFJXuQiuDate=findViewById(R.id.MFJXuQiuDate);
+        MFJXuQiuCont=findViewById(R.id.MFJXuQiuCont);
         MFJXuQiuUser=findViewById(R.id.MFJXuQiuUser);
 
         add_info=findViewById(R.id.add_info);

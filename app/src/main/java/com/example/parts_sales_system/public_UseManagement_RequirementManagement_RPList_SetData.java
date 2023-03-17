@@ -43,9 +43,9 @@ public class public_UseManagement_RequirementManagement_RPList_SetData extends A
         BuildPlanningCodeID = findViewById(R.id.BuildPlanningCodeID);
         BuildPlanningCodeID.setText((String)data.get("MJFXuQiuID"));
 
-//        MFJXuQiuDate=findViewById(R.id.MFJXuQiuDate);
+        MFJXuQiuDate=findViewById(R.id.MFJXuQiuDate);
         MFJXuQiuDate.setText((String)data.get("MFJXuQiuDate"));
-//        MFJXuQiuCont=findViewById(R.id.MFJXuQiuCont);
+        MFJXuQiuCont=findViewById(R.id.MFJXuQiuCont);
         MFJXuQiuCont.setText((String)data.get("MFJXuQiuCont"));
         MFJXuQiuUser=findViewById(R.id.MFJXuQiuUser);
         MFJXuQiuUser.setText((String)data.get("MFJXuQiuUser"));
